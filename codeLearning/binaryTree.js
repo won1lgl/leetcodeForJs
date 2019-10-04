@@ -111,7 +111,6 @@ function find(num) {
     let current = this.root
     while (!(current == null)) {
         if (num == current.show()) {
-            console.log("找到了")
             return current
         } else if (num > current.show()) {
             current = current.right
@@ -119,7 +118,6 @@ function find(num) {
             current = current.left
         }
     }
-    console.log("没找到")
     return null
 }
 
@@ -174,6 +172,20 @@ function genArray(length) {
     return arr
 }
 
+// 初始化带频率统计的数组
+function init(length) {
+    const myArr = genArray(length)
+    console.log('生成的数组是', myArr)
+    for (const value of myArr) {
+        let node = this.find(value)
+        if (node == null) {
+            this.insert(node)
+        } else {
+            this.update(value)
+        }
+    }
+}
+
 let bTree = new BST()
 bTree.insert(23)
 bTree.insert(45)
@@ -191,3 +203,4 @@ bTree.insert(22)
 // console.log(bTree.genArray(10))
 
 let cTree = new BST()
+cTree.init(10)
