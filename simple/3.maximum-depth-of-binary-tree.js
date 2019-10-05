@@ -115,10 +115,10 @@ function trueGetDepth(root = this.root) {
 console.log('最大深度是:', bTree.trueGetDepth())
 
 //真正的递归
-function getMaxDepth2(cur){
+function getMaxDepth2(cur = this.root){
     if(!cur) return 0
     if(!cur.left && !cur.right) return 1
     return 1+Math.max(getMaxDepth2(cur.left),getMaxDepth2(cur.right))
 }
 
-console.log('最大的深度就是:', getMaxDepth2(bTree.root))
+console.log('最大的深度就是:', bTree.getMaxDepth2())
