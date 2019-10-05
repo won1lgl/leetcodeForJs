@@ -23,6 +23,8 @@ function BST() {
     this.update = update
     this.genArray = genArray
     this.init = init
+    this.getNodeNum = getNodeNum
+    this.getSideNum = getSideNum
 }
 
 //定义二叉搜索树的插入节点算法
@@ -186,6 +188,18 @@ function init(length) {
     }
 }
 
+//统计二叉树节点的个数
+function getNodeNum(node = this.root){
+     if(!node) return 0
+     if(!node.left && !node.right) return 1
+     return 1 + getNodeNum(node.left) + getNodeNum(node.right)
+}
+
+//统计二叉树边的个数
+function getSideNum(){
+    return this.getNodeNum() - 1
+}
+
 let bTree = new BST()
 bTree.insert(23)
 bTree.insert(45)
@@ -201,6 +215,8 @@ bTree.insert(22)
 // bTree.find(37)
 // bTree.remove(99)
 // console.log(bTree.genArray(10))
+console.log('这颗树上的节点共有:', bTree.getNodeNum())
+console.log('这课树的边共有', bTree.getSideNum())
 
 let cTree = new BST()
 cTree.init(10)
