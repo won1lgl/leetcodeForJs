@@ -191,7 +191,6 @@ function init(length) {
 //统计二叉树节点的个数
 function getNodeNum(node = this.root){
      if(!node) return 0
-     if(!node.left && !node.right) return 1
      return 1 + getNodeNum(node.left) + getNodeNum(node.right)
 }
 
