@@ -2,6 +2,7 @@
 function Node(data) {
     this.data = data
     this.next = null
+    this.previous = null
 }
 
 // 定义链表类
@@ -19,6 +20,8 @@ function insert(newData, data) {
     let newNode = new Node(newData)
     newNode.next = curNode.next
     curNode.next = newNode
+    newNode.previous = curNode
+    newNode.next.previous = newNode
 }
 
 // 定义查找算法
